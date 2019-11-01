@@ -1,0 +1,49 @@
+<div class="modal-header" style="background-color: #e9e9e9; width:700px;">
+	<h4 class="modal-title pull-left"><b> {{ title }} </b></h4>
+	<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="modal-body" style="background-color: #ffffff; width:700px">
+	<div class="row">
+        <div class="col-xs-12">
+      
+          <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" placeholder="Search by Occupancy" class="form-control" [(ngModel)]="name" (input)="search()">
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input type="submit"  value="CLEAR SELECTION" (click)="clearSelection()" class="btn btn-black">
+                </div>
+          </div>
+        
+         <br/>
+    
+          <div class="row table-wrapper-scroll-y my-custom-scrollbar">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Choose Occupancy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let occupancy of occupancies; let i = index" (click)="setClickedRow(i)" [class.active]="i == selectedRow" style="text-align: left">
+                                <td><span class="glyphicon glyphicon-chevron-right"></span> {{occupancy.OccupancyName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+          </div>
+      
+           <div class="row">
+                <div class="col-xs-6" id="title">
+                        <h4><b>Selected Occupancy:</b></h4>
+                </div>
+                <div class="col-xs-12 selected">
+                    <span *ngIf="selectedRow != null">{{occupancies[selectedRow].OccupancyName}}</span>
+                </div>
+          </div>
+    
+        </div>
+      </div>
+</div>

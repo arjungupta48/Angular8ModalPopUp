@@ -1,0 +1,15 @@
+header{
+    text-align: left;
+    padding: 4px;
+    font-size: 35px;
+    border-bottom: 2px solid #eee;
+    background-color: #3e3f3a;
+}
+img{
+    width: 250px;
+    height: 50px;
+}
+span{
+    font-weight: bold;
+    font-family: inherit;
+}
